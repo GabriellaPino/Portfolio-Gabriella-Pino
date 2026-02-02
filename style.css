@@ -1,0 +1,428 @@
+/* ==========================================
+   1. IMPORT E VARIABILI (Temi)
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --colore-primario: white;
+    --colore-sfondo: #333333;
+    --colore-testo: white;
+    --colore-scuro: #222222;
+    --color-glow: #333333;
+}
+
+/* Temi Specifici per Pagina */
+body.page-home { --colore-sfondo: #6495ED; --colore-primario: #191970; --colore-testo: #191970; }
+body.page-hibet { --colore-sfondo: #00afaf; --colore-accento: #00796b; --colore-primario: white; --colore-testo: white; }
+body.page-archeome { --colore-sfondo: #A52A2A; --colore-accento: #800000; --colore-primario: white; --colore-testo: white; }
+body.page-universome { --colore-sfondo: #ff8c00; --colore-accento: #ef6c00; --colore-primario: white; --colore-testo: white; }
+body.page-rosanero { --colore-sfondo: #FDD7E4; --colore-accento: #FFAACC; --colore-primario: #000000; --colore-testo: #000000; }
+body.page-mindwork { --colore-sfondo: #88d78f; --colore-accento: #388E3C; --colore-primario: white; --colore-testo: white; }
+body.page-calciostyle { --colore-sfondo: #f71901; --colore-accento: #d32f2f; --colore-primario: white; --colore-testo: white; }
+body.page-altri { --colore-sfondo: #A9A9A9; --colore-accento: #708090; --colore-primario: white; --colore-testo: white; }
+
+/* ==========================================
+   2. BASI E TIPOGRAFIA
+   ========================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.7;
+    background-color: var(--colore-sfondo);
+    color: var(--colore-testo);
+    transition: all 0.5s ease;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.5px;
+    color: var(--colore-primario);
+}
+
+.titolo-sezione {
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   3. HEADER E NAVIGAZIONE
+   ========================================== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--colore-sfondo);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-site {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.logo-site:hover { transform: rotate(5deg) scale(1.1); }
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--colore-primario) !important;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-transform: uppercase; 
+    font-size: 0.85rem;        
+    letter-spacing: 1px;       
+    position: relative;
+    padding: 5px 0;
+    transition: opacity 0.3s;
+}
+
+nav a:hover { opacity: 0.7; }
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px; bottom: 0; left: 0;
+    background-color: var(--colore-primario);
+    transition: width 0.3s ease;
+}
+nav a:hover::after { width: 100%; }
+/* Stile per il link attivo durante lo scroll */
+nav ul li a.active {
+    color: var(--colore-primario) !important;
+    opacity: 1;
+    border-bottom: 2px solid var(--colore-primario);
+}
+/* ==========================================
+   4. SEZIONE BIO (PROFILO)
+   ========================================== */
+.bio-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    background: white;
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.foto-profilo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 20px rgba(0, 0, 0, 0.1);
+    border: 8px solid rgba(100, 149, 237, 0.1);
+    transition: all 0.5s ease;
+}
+.foto-profilo:hover { transform: scale(1.05); }
+
+.bio-testo { flex: 1; }
+.bio-testo p { text-align: justify; text-justify: inter-word; hyphens: auto; line-height: 1.6; }
+
+/* Tasto CV dentro la Bio */
+.btn-cv-bio {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: var(--colore-primario);
+    color: var(--colore-sfondo) !important;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid var(--colore-primario);
+}
+.btn-cv-bio:hover { background-color: transparent; color: var(--colore-primario) !important; transform: translateY(-3px); }
+
+/* ==========================================
+   5. ESPERIENZE PROFESSIONALI (LISTA)
+   ========================================== */
+.lista-curriculum { list-style-type: none; padding-left: 0; }
+.lista-curriculum li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+}
+.lista-curriculum li:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-glow);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 15px var(--color-glow);
+}
+
+/* Colori Card Esperienze */
+.card-hibet       { --color-glow: #00796b; }
+.card-archeome    { --color-glow: #800000; }
+.card-universome  { --color-glow: #ef6c00; }
+.card-rosanero    { --color-glow: red; }
+.card-mindwork    { --color-glow: blue; }
+.card-calciostyle { --color-glow: #d32f2f; }
+.card-altri       { --color-glow: #708090; }
+
+.esperienza-contenuto { flex: 1; }
+.esperienza-logo { flex-basis: 120px; flex-shrink: 0; display: flex; justify-content: center; }
+
+.lista-curriculum strong { font-size: 1.2rem; color: var(--colore-primario); }
+.lista-curriculum li:hover strong { color: var(--color-glow); }
+.lista-curriculum p { text-align: justify; margin-top: 10px; margin-right: 5px; line-height: 1.5; }
+
+.logo-standard { max-width: 100%; max-height: 80px; width: auto; height: auto; object-fit: contain; transition: transform 0.3s; }
+.logo-standard:hover { transform: scale(1.1); }
+
+/* Link Portfolio dentro le card */
+.link-portfolio-item {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-glow);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+.link-portfolio-item:hover { text-decoration: underline; opacity: 0.8; }
+
+/* Tag Skills nelle card */
+.tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+.tag {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--colore-testo);
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.lista-curriculum li:hover .tag { background: var(--color-glow); border-color: var(--color-glow); color: white; }
+
+/* ==========================================
+   6. SEZIONE SKILLS (HOME)
+   ========================================== */
+.skills-section { margin-bottom: 60px; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.skill-card {
+    background: white; padding: 30px; border-radius: 15px; text-align: center;
+    border: 2px solid transparent; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.skill-card:hover { transform: translateY(-10px); border-color: #6495ED; box-shadow: 0 10px 25px rgba(100, 149, 237, 0.2); }
+.skill-icon { font-size: 2.5rem; color: #6495ED; margin-bottom: 15px; }
+.skill-card h3 { color: #191970; font-family: sans-serif; margin-bottom: 15px; font-size: 1.2rem; }
+.skill-card ul { list-style: none; padding: 0; text-align: left; }
+.skill-card ul li { font-family: sans-serif; font-size: 0.9rem; color: #555; margin-bottom: 8px; padding-left: 20px; position: relative; }
+.skill-card ul li::before { content: '✓'; position: absolute; left: 0; color: #6495ED; font-weight: bold; }
+
+/* ==========================================
+   7. SEZIONE ISTRUZIONE E TESI
+   ========================================== */
+.istruzione-section { margin-bottom: 60px; }
+.istruzione-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+
+.istruzione-card-v2 {
+    background: white; padding: 30px; border-radius: 20px; display: flex; flex-direction: column;
+    justify-content: space-between; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(100, 149, 237, 0.1); position: relative; transition: transform 0.3s ease;
+}
+.istruzione-card-v2:hover { transform: translateY(-5px); border-color: var(--colore-sfondo); }
+
+.voto-badge {
+    display: inline-block; background-color: var(--colore-sfondo); color: var(--colore-primario);
+    padding: 4px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px;
+}
+.tesi-info { font-size: 0.95rem; font-style: italic; color: #555; margin-top: 15px; border-top: 1px dashed #ddd; padding-top: 15px; }
+
+/* Tesi Interattive */
+.tesi-link-container { margin-top: 20px; position: relative; text-align: center; }
+.tesi-link-container a { display: inline-block; position: relative; border-radius: 8px; overflow: hidden; }
+.img-tesi-interattiva { width: 140px; height: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: all 0.3s ease; display: block; }
+.overlay-pdf {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(25, 25, 112, 0.8); color: white; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; font-size: 0.85rem; font-weight: bold;
+}
+.tesi-link-container a:hover .overlay-pdf { opacity: 1; }
+.tesi-link-container a:hover .img-tesi-interattiva { transform: scale(1.05); }
+
+/* ==========================================
+   8. SEZIONE CERTIFICAZIONI
+   ========================================== */
+.certificazioni-section { margin-bottom: 60px; }
+.cert-grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+.cert-group h3 {
+    font-size: 1.4rem; color: var(--colore-primario); border-bottom: 2px solid var(--colore-primario);
+    padding-bottom: 10px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.cert-list { display: flex; flex-direction: column; gap: 15px; }
+.cert-card-v3 {
+    background: white; padding: 20px; border-radius: 15px; display: flex; align-items: center;
+    gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border-left: 5px solid var(--colore-sfondo);
+}
+.cert-card-v3:hover { transform: translateX(10px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.cert-icon { font-size: 2rem; color: var(--colore-sfondo); opacity: 0.7; }
+.cert-text h4 { margin: 0; font-size: 1.1rem; color: #333; }
+.cert-text p { margin: 5px 0; font-size: 0.85rem; color: #666; }
+.btn-attestato {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; font-size: 0.75rem; font-weight: bold;
+    color: var(--colore-sfondo); text-decoration: none; background: rgba(100, 149, 237, 0.1); padding: 5px 12px; border-radius: 50px; transition: all 0.3s ease;
+}
+.btn-attestato:hover { background: var(--colore-sfondo); color: white !important; }
+
+/* ==========================================
+   9. FOOTER E CONTATTI
+   ========================================== */
+.site-footer {
+    margin-top: 50px; padding: 60px 0 30px 0;
+    background-color: var(--colore-sfondo); border-top: 4px solid var(--colore-primario);
+    transition: background-color 0.5s ease, border-color 0.5s ease; position: relative; overflow: hidden;
+}
+.site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.05); pointer-events: none; }
+
+.footer-container {
+    display: flex; justify-content: border-box; align-items: flex-start; flex-wrap: nowrap;
+    max-width: 1200px; margin: 0 auto; padding: 0 20px; gap: 40px; position: relative; z-index: 1;
+}
+
+.footer-section { flex: 1; min-width: 200px; margin-bottom: 20px; }
+.footer-section h4 { color: var(--colore-primario); text-transform: uppercase; font-size: 1rem; margin-bottom: 25px; letter-spacing: 1.5px; font-family: sans-serif; }
+
+/* Social Icons */
+.social-icons { display: flex; gap: 20px; }
+.social-icons a { font-size: 1.8rem; color: var(--colore-testo); transition: all 0.4s ease; display: inline-block;}
+.social-icons a:hover {transform: translateY(-8px); }
+
+/* Colori specifici dei Brand al passaggio del mouse */
+.social-icons a:hover .fa-facebook {color: #1877F2; /* Blu ufficiale Facebook */ }
+.social-icons a:hover .fa-instagram {color: #E4405F; /* Rosa/Rosso ufficiale Instagram */ }
+.social-icons a:hover .fa-linkedin {color: #0A66C2; /* Blu ufficiale LinkedIn */ }
+.social-icons a:hover .fa-x-twitter {color: #000000; /* Nero ufficiale X/Twitter */ }
+
+/* Contatti Text */
+.contact-link { color: var(--colore-testo); text-decoration: none; transition: color 0.3s ease; }
+.contact-link:hover { color: var(--colore-primario); }
+.contact-box p { margin: 10px 0; font-family: sans-serif; font-size: 0.95rem; color: var(--colore-testo); }
+.contact-box i { margin-right: 12px; color: var(--colore-primario); }
+
+/* Footer Bottom & GDPR */
+.footer-bottom { text-align: center; margin-top: 40px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: var(--colore-testo); opacity: 0.8; }
+.gdpr-note { font-size: 0.75rem; opacity: 0.7; margin-bottom: 10px; display: block; font-style: italic; }
+
+/* ==========================================
+   10. ARTICOLI E GRIGLIA PORTFOLIO
+   ========================================== */
+.container-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+.box-articolo {
+    overflow: hidden; position: relative; display: flex; height: 100%; flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.5); background: #ffffff; padding: 25px; border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0; animation: fadeInUp 0.6s ease-out forwards;
+}
+.box-articolo:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); border-color: var(--colore-primario); }
+.box-articolo h3 { margin-top: 0; text-align: left; font-family: sans-serif; font-size: 1.4rem; color: #1a1a1a; margin-bottom: 15px; line-height: 1.3; min-height: 100px; display: flex; align-items: center; justify-content: center; }
+.box-articolo .articolo-immagine { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin: 15px 0; transition: transform 0.5s ease; display: block; }
+.box-articolo:hover .articolo-immagine { transform: scale(1.05); }
+
+/* Badge Categorie */
+.badge-categoria { display: inline-block; align-self: flex-start; margin-bottom: 15px; padding: 4px 12px; border-radius: 20px; font-family: sans-serif; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; color: white; letter-spacing: 1px; }
+
+/* ==========================================
+   11. PULSANTI E COMPONENTI UI
+   ========================================== */
+.btn-carica-altri {
+    padding: 12px 30px; background-color: var(--colore-primario); color: var(--colore-sfondo);
+    border: 2px solid var(--colore-primario); border-radius: 50px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; font-size: 0.9rem;
+}
+.btn-carica-altri:hover { background-color: transparent; color: var(--colore-primario); }
+
+#backToTop {
+    display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1001;
+    border: none; outline: none; background-color: var(--colore-primario); color: var(--colore-sfondo);
+    cursor: pointer; padding: 15px; border-radius: 50%; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s ease;
+}
+#backToTop:hover { transform: scale(1.1); filter: brightness(1.2); }
+
+/* ==========================================
+   12. ANIMAZIONI
+   ========================================== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section, .box-articolo, .istruzione-card, .istruzione-card-v2 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ==========================================
+   13. DARK MODE AUTOMATICA
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+    body.page-home { --colore-sfondo: #101a2d; --colore-primario: #82adff; --colore-testo: #e0e0e0; }
+    body.page-hibet { --colore-sfondo: #002b2b; --colore-primario: #4db6ac; --colore-testo: #e0f2f1; }
+    body.page-archeome { --colore-sfondo: #2d0a0a; --colore-primario: #ff8a80; --colore-testo: #ffebee; }
+    body.page-universome { --colore-sfondo: #3e2723; --colore-primario: #ffb74d; --colore-testo: #fff3e0; }
+    body.page-rosanero { --colore-sfondo: #2a1b1f; --colore-primario: #ffc1e3; --colore-testo: #fce4ec; }
+    body.page-mindwork { --colore-sfondo: #1b2d1c; --colore-primario: #a5d6a7; --colore-testo: #e8f5e9; }
+    body.page-calciostyle { --colore-sfondo: #310000; --colore-primario: #ef5350; --colore-testo: #ffebee; }
+    body.page-altri { --colore-sfondo: #1a1a1a; --colore-primario: #cfd8dc; --colore-testo: #eceff1; }
+
+    article, .box-articolo, .skill-card, .istruzione-card-v2, .bio-container, .cert-card-v3 {
+        background-color: #1e1e1e !important;
+        border-color: var(--colore-primario) !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .box-articolo h3, .box-articolo p, .p-giustificato, .cert-text h4 { color: #ffffff !important; }
+    .tag { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    .logo-site, .logo-standard { filter: brightness(0.9) contrast(1.1); }
+}
+
+/* ==========================================
+   14. RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 900px) {
+    .cert-grid-container, .istruzione-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .footer-container { flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+    .bio-container, .lista-curriculum li, .istruzione-card-v2 { flex-direction: column; text-align: center; }
+    .esperienza-logo, .cv-download-container { margin-left: 0; margin-top: 10px; width: 100%; display: flex; justify-content: center; }
+    .container-griglia { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+}
